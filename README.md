@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## SecreenShot
 
-![image](main.png)
+![image](main.jpg)
 
 ## Requirements
 
