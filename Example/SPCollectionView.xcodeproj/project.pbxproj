@@ -10,6 +10,7 @@
 		1BD90A90EAC4525E1F7AB491 /* Pods_SPCollectionView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2E5C02F154C1F6C9AA6D25 /* Pods_SPCollectionView_Tests.framework */; };
 		526214AF3A42C467E88D7C2F /* Pods_SPCollectionView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B79AAAF7555082EBB73FF64 /* Pods_SPCollectionView_Example.framework */; };
 		5C06FD032A8A282F003645E0 /* SPSongItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06FD022A8A282F003645E0 /* SPSongItem.m */; };
+		5C06FD062A8A3690003645E0 /* SPSong.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06FD052A8A3690003645E0 /* SPSong.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -41,6 +42,8 @@
 		4F9D081D4587518ADEE201A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		5C06FD012A8A282F003645E0 /* SPSongItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSongItem.h; sourceTree = "<group>"; };
 		5C06FD022A8A282F003645E0 /* SPSongItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSongItem.m; sourceTree = "<group>"; };
+		5C06FD042A8A3690003645E0 /* SPSong.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSong.h; sourceTree = "<group>"; };
+		5C06FD052A8A3690003645E0 /* SPSong.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSong.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SPCollectionView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPCollectionView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -145,6 +148,8 @@
 				6003F594195388D20070C39A /* Supporting Files */,
 				5C06FD012A8A282F003645E0 /* SPSongItem.h */,
 				5C06FD022A8A282F003645E0 /* SPSongItem.m */,
+				5C06FD042A8A3690003645E0 /* SPSong.h */,
+				5C06FD052A8A3690003645E0 /* SPSong.m */,
 			);
 			name = "Example for SPCollectionView";
 			path = SPCollectionView;
@@ -378,6 +383,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C06FD062A8A3690003645E0 /* SPSong.m in Sources */,
 				5C06FD032A8A282F003645E0 /* SPSongItem.m in Sources */,
 				6003F59E195388D20070C39A /* SPAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SPViewController.m in Sources */,

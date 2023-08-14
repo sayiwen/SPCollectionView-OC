@@ -10,6 +10,7 @@
 #import <SPCollectionView/SPCollectionView.h>
 #import <SPLayout/SPLayout.h>
 #import "SPSongItem.h"
+#import "SPSong.h"
 
 @interface SPViewController ()<SPCollectionViewDelegate>
 
@@ -43,8 +44,9 @@
     NSMutableArray *array = [NSMutableArray array];
     //20 data
     for (int i = 0; i < 20; i++) {
-        SPViewModel *model = [[SPViewModel alloc] init];
+        SPSong *model = [[SPSong alloc] init];
         model.viewType = 0;
+        model.title = [NSString stringWithFormat:@"Title %d",i];
         [array addObject:model];
     }
     self.page = 1;
@@ -66,17 +68,25 @@
         NSMutableArray *array = [NSMutableArray array];
         //20 data
         for (int i = 0; i < 20; i++) {
-            SPViewModel *model = [[SPViewModel alloc] init];
+            SPSong *model = [[SPSong alloc] init];
             model.viewType = 0;
             model.viewSpan = 60/self.page;
+            model.title = [NSString stringWithFormat:@"Title %d",i];
             [array addObject:model];
         }
-        
         
         [self.collectionView addData:[array copy]];
         [self.collectionView stopLoadMore];
     });
     
+}
+
+- (void)onItemClick:(SPCollectionView *)collectionView model:(SPViewModel *)model index:(NSInteger)index{
+    //alert click
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"click" message:[NSString stringWithFormat:@"click %ld",index] preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"ok" style:UIAlertActionStyleDefault handler:nil];
+    [alert addAction:action];
+    [self presentViewController:alert animated:true completion:nil];
 }
 
 - (void)viewWillLayoutSubviews{

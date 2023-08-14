@@ -9,6 +9,10 @@
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
+## SecreenShot
+
+![image](main.png)
+
 ## Requirements
 
 ## Installation

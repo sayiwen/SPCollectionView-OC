@@ -8,6 +8,16 @@
 
 #import "SPSongItem.h"
 #import <SPLayout/SPLayout.h>
+#import "SPSong.h"
+
+
+@interface SPSongItem()
+
+//title
+@property (nonatomic, weak) UILabel *title;
+
+
+@end
 
 @implementation SPSongItem
 
@@ -20,8 +30,21 @@
     UIView *view = [UIView new];
     view.backgroundColor = [UIColor systemBlueColor];
     [self addSubview:view];
-    SPLayout.layout(view).leftToLeftOfMargin(self,10).rightToRightOfMargin(self,10).height(50).install();
+    SPLayout.layout(view).leftToLeftOfMargin(self,10).rightToRightOfMargin(self,10).height(50).centerY(self).install();
+    [view.layer setCornerRadius:10];
+    view.clipsToBounds = YES;
     
+    UILabel *title = [UILabel new];
+    title.text = @"title";
+    title.textColor = UIColor.whiteColor;
+    [view addSubview:title];
+    self.title = title;
+    SPLayout.layout(title).center(view).install();
+    
+}
+
+- (void)setData:(SPSong *)data{
+    [self.title setText:data.title];
 }
 
 @end
