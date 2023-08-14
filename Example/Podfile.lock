@@ -1,0 +1,37 @@
+PODS:
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.17)
+  - SPCollectionView (0.1.0):
+    - MJRefresh (~> 3.1.12)
+  - SPLayout (0.1.3):
+    - Masonry (~> 1.1.0)
+
+DEPENDENCIES:
+  - SPCollectionView (from `../`)
+  - "SPLayout (from `git@github.com:sayiwen/SPLayout-OC.git`)"
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - MJRefresh
+
+EXTERNAL SOURCES:
+  SPCollectionView:
+    :path: "../"
+  SPLayout:
+    :git: "git@github.com:sayiwen/SPLayout-OC.git"
+
+CHECKOUT OPTIONS:
+  SPLayout:
+    :commit: dc6d618ff5e1e8ef079a936042c93df6a7839009
+    :git: "git@github.com:sayiwen/SPLayout-OC.git"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  SPCollectionView: 1ac8f619893c9c165ca83058ef96a89a1a87013c
+  SPLayout: a80664562a9a6ad1b8345eb4e87a758d8c2cb02d
+
+PODFILE CHECKSUM: b3858356e24f1685e8e41a8be894fe56af107e9c
+
+COCOAPODS: 1.12.0
