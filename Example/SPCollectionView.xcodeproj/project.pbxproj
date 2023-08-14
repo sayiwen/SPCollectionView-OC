@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1BD90A90EAC4525E1F7AB491 /* Pods_SPCollectionView_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A2E5C02F154C1F6C9AA6D25 /* Pods_SPCollectionView_Tests.framework */; };
 		526214AF3A42C467E88D7C2F /* Pods_SPCollectionView_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8B79AAAF7555082EBB73FF64 /* Pods_SPCollectionView_Example.framework */; };
+		5C06FD032A8A282F003645E0 /* SPSongItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 5C06FD022A8A282F003645E0 /* SPSongItem.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -37,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F9D081D4587518ADEE201A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		4F9D081D4587518ADEE201A4 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5C06FD012A8A282F003645E0 /* SPSongItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SPSongItem.h; sourceTree = "<group>"; };
+		5C06FD022A8A282F003645E0 /* SPSongItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SPSongItem.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SPCollectionView_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPCollectionView_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -63,9 +66,9 @@
 		8B79AAAF7555082EBB73FF64 /* Pods_SPCollectionView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPCollectionView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4ABE8E0AD307B06AB10EA6 /* Pods-SPCollectionView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPCollectionView_Tests.release.xcconfig"; path = "Target Support Files/Pods-SPCollectionView_Tests/Pods-SPCollectionView_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		DC8E2111FBE403F69644CACE /* Pods-SPCollectionView_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPCollectionView_Example.release.xcconfig"; path = "Target Support Files/Pods-SPCollectionView_Example/Pods-SPCollectionView_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EAB40C90E5E8C9ED319C44F7 /* SPCollectionView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = SPCollectionView.podspec; path = ../SPCollectionView.podspec; sourceTree = "<group>"; };
+		EAB40C90E5E8C9ED319C44F7 /* SPCollectionView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SPCollectionView.podspec; path = ../SPCollectionView.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		EDF3F8A69D31FD034A8A7C77 /* Pods-SPCollectionView_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPCollectionView_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SPCollectionView_Tests/Pods-SPCollectionView_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		F08898647DC5FDC409EACAE9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		F08898647DC5FDC409EACAE9 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		FBA4FB569A65AB095F6F7687 /* Pods-SPCollectionView_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPCollectionView_Example.debug.xcconfig"; path = "Target Support Files/Pods-SPCollectionView_Example/Pods-SPCollectionView_Example.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -140,6 +143,8 @@
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
+				5C06FD012A8A282F003645E0 /* SPSongItem.h */,
+				5C06FD022A8A282F003645E0 /* SPSongItem.m */,
 			);
 			name = "Example for SPCollectionView";
 			path = SPCollectionView;
@@ -193,7 +198,6 @@
 				EDF3F8A69D31FD034A8A7C77 /* Pods-SPCollectionView_Tests.debug.xcconfig */,
 				9D4ABE8E0AD307B06AB10EA6 /* Pods-SPCollectionView_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -248,6 +252,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = sayiwen;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Z2PQ6UW345;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -258,6 +265,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -346,11 +354,17 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SPCollectionView_Example/Pods-SPCollectionView_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SPCollectionView/SPCollectionView.framework",
+				"${BUILT_PRODUCTS_DIR}/SPLayout/SPLayout.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPCollectionView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPLayout.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -364,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C06FD032A8A282F003645E0 /* SPSongItem.m in Sources */,
 				6003F59E195388D20070C39A /* SPAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* SPViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
@@ -494,6 +509,7 @@
 			baseConfigurationReference = FBA4FB569A65AB095F6F7687 /* Pods-SPCollectionView_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z2PQ6UW345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPCollectionView/SPCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "SPCollectionView/SPCollectionView-Info.plist";
@@ -510,6 +526,7 @@
 			baseConfigurationReference = DC8E2111FBE403F69644CACE /* Pods-SPCollectionView_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z2PQ6UW345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPCollectionView/SPCollectionView-Prefix.pch";
 				INFOPLIST_FILE = "SPCollectionView/SPCollectionView-Info.plist";

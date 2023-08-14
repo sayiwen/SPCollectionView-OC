@@ -4,6 +4,8 @@ platform :ios, '10.0'
 
 target 'SPCollectionView_Example' do
   pod 'SPCollectionView', :path => '../'
+  
+  pod 'SPLayout', :git => 'git@github.com:sayiwen/SPLayout-OC.git'
 
   target 'SPCollectionView_Tests' do
     inherit! :search_paths
