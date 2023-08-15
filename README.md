@@ -11,7 +11,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## SecreenShot
 
-![image](main.jpg)
+![image](https://github.com/sayiwen/SPCollectionView-OC/blob/main/main.jpg)
 
 ## Requirements
 
