@@ -9,6 +9,11 @@
 
 @implementation SPBaseItem
 
+
++ (CGFloat)itemHeight:(CGFloat)width{
+    return 100.f;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
