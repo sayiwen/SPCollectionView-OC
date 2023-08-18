@@ -19,6 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)onItemChildClick:(NSDictionary *)data;
 - (void)onRefresh;
 - (void)onLoadMore;
+- (void)onGetHeight:(CGFloat)height;
+- (void)onScroll:(UIScrollView *)scrollView;
+- (void)onScrollBegin:(UIScrollView *)scrollView;
+- (void)onScrollEnd:(UIScrollView *)scrollView;
 @end
 
 

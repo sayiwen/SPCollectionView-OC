@@ -15,6 +15,10 @@ static NSMutableDictionary *itemDictioanry;
 
 @property (nonatomic,strong) NSMutableArray<SPViewModel *> *dataList;
 
+//总高度
+@property (nonatomic,assign) CGFloat totalHeight;
+
+
 @end
 
 @implementation SPCollectionView
@@ -42,6 +46,7 @@ static NSMutableDictionary *itemDictioanry;
     collectionView.showsVerticalScrollIndicator = NO;
     collectionView.userDelegate = delegate;
     collectionView.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
+    collectionView.totalHeight = 0;
     return collectionView;
 }
 
@@ -55,7 +60,6 @@ static NSMutableDictionary *itemDictioanry;
     }
 }
 
-
 //确定大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     SPViewModel *model = self.dataList[indexPath.row];
@@ -65,11 +69,21 @@ static NSMutableDictionary *itemDictioanry;
     }else{
         width = self.frame.size.width;
     }
+    CGSize size = CGSizeMake(width, 100);
     Class itemClass = [itemDictioanry objectForKey:[NSString stringWithFormat:@"%ld",(long)model.viewType]];
     if([itemClass respondsToSelector:@selector(itemHeight:)]){
-        return CGSizeMake(width,[itemClass itemHeight:width]);
+        size = CGSizeMake(width, [itemClass itemHeight:width]);
     }
-    return CGSizeMake(width, 100);
+    self.totalHeight += size.height;
+    if(indexPath.row == self.dataList.count - 1){
+        if(self.userDelegate != nil){
+            if([self.userDelegate respondsToSelector:@selector(onGetHeight:)]){
+                [self.userDelegate onGetHeight:self.totalHeight];
+            }
+        }
+    }
+    return size;
+    
 }
 
 //确定数量
@@ -144,6 +158,32 @@ static NSMutableDictionary *itemDictioanry;
 }
 - (void)enableLoadMore:(MJRefreshFooter *)footer{
     self.mj_footer = footer;
+}
+
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if(self.userDelegate != nil){
+        if([self.userDelegate respondsToSelector:@selector(onScroll:)]){
+            [self.userDelegate onScroll:scrollView];
+        }
+    }
+
+}
+
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
+    if(self.userDelegate != nil){
+        if([self.userDelegate respondsToSelector:@selector(onScrollBegin:)]){
+            [self.userDelegate onScrollBegin:scrollView];
+        }
+    }
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+    if(self.userDelegate != nil){
+        if([self.userDelegate respondsToSelector:@selector(onScrollEnd:)]){
+            [self.userDelegate onScrollEnd:scrollView];
+        }
+    }
 }
 
 @end
