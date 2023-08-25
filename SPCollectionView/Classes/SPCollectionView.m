@@ -17,6 +17,8 @@ static NSMutableDictionary *itemDictioanry;
 
 //总高度
 @property (nonatomic,assign) CGFloat totalHeight;
+//nsdictionary
+@property (nonatomic,strong) NSMutableArray *breakLineDict;
 
 
 @end
@@ -39,7 +41,7 @@ static NSMutableDictionary *itemDictioanry;
     layout.minimumInteritemSpacing = 0;
     
     SPCollectionView *collectionView = [[SPCollectionView alloc]initWithFrame:CGRectZero collectionViewLayout:layout];
-    collectionView = collectionView;
+    collectionView.backgroundColor = [UIColor clearColor];
     collectionView.delegate = collectionView;
     collectionView.dataSource = collectionView;
     collectionView.showsVerticalScrollIndicator = NO;
@@ -74,7 +76,17 @@ static NSMutableDictionary *itemDictioanry;
     if([itemClass respondsToSelector:@selector(itemHeight:)]){
         size = CGSizeMake(width, [itemClass itemHeight:width]);
     }
-    self.totalHeight += size.height;
+    
+
+    
+    
+    //计算总高度
+    long row = indexPath.row;
+    //if row in the breakLineDict
+    if([self.breakLineDict containsObject:@(row)]){
+        self.totalHeight += size.height;
+    }
+
     if(indexPath.row == self.dataList.count - 1){
         if(self.userDelegate != nil){
             if([self.userDelegate respondsToSelector:@selector(onGetHeight:)]){
@@ -82,12 +94,24 @@ static NSMutableDictionary *itemDictioanry;
             }
         }
     }
+    
     return size;
     
 }
 
 //确定数量
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSInteger span = 0;
+    self.breakLineDict = [[NSMutableArray alloc]init];
+    [self.breakLineDict addObject:@((long)0)];
+    for (SPViewModel *model in self.dataList) {
+        span += model.viewSpan;
+        if(span > 60){
+            long index = [self.dataList indexOfObject:model];
+            [self.breakLineDict addObject:@(index)];
+            span = model.viewSpan;
+        }
+    }
     return self.dataList.count;
 }
 
@@ -104,6 +128,7 @@ static NSMutableDictionary *itemDictioanry;
 
 //数据源
 - (void)setData:(NSArray<SPViewModel *> *)data{
+    self.totalHeight = 0;
     _dataList = [[NSMutableArray alloc]initWithArray:data];
     for (SPViewModel *model in data) {
         [self registerClass:[itemDictioanry objectForKey:[NSString stringWithFormat:@"%ld",(long)model.viewType]] forCellWithReuseIdentifier:[@"viewType" stringByAppendingFormat:@"%ld",(long)model.viewType]];
@@ -114,6 +139,7 @@ static NSMutableDictionary *itemDictioanry;
 
 //添加数据源
 - (void)addData:(NSArray<SPViewModel *> *)data{
+    self.totalHeight = 0;
     [_dataList addObjectsFromArray:data];
     for (SPViewModel *model in data) {
         [self registerClass:[itemDictioanry objectForKey:[NSString stringWithFormat:@"%ld",(long)model.viewType]] forCellWithReuseIdentifier:[@"viewType" stringByAppendingFormat:@"%ld",(long)model.viewType]];

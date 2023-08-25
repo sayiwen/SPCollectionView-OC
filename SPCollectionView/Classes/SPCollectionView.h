@@ -8,24 +8,12 @@
 #import <UIKit/UIKit.h>
 #import "SPViewModel.h"
 #import <MJRefresh/MJRefresh.h>
+#import "SPCollectionView.h"
+#import "SPBaseItem.h"
+#import "SPCollectionViewDelegate.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
-
-@class SPCollectionView;
-@protocol SPCollectionViewDelegate <NSObject>
-@optional
-- (void)onItemClick:(SPCollectionView *)collectionView model:(SPViewModel *)model index:(NSInteger)index;
-- (void)onItemChildClick:(NSDictionary *)data;
-- (void)onRefresh;
-- (void)onLoadMore;
-- (void)onGetHeight:(CGFloat)height;
-- (void)onScroll:(UIScrollView *)scrollView;
-- (void)onScrollBegin:(UIScrollView *)scrollView;
-- (void)onScrollEnd:(UIScrollView *)scrollView;
-@end
-
-
 @interface SPCollectionView : UICollectionView
 
 @property (nonatomic, weak, nullable) id <SPCollectionViewDelegate> userDelegate;

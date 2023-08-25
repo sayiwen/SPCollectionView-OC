@@ -7,13 +7,12 @@
 
 #import <UIKit/UIKit.h>
 #import "SPViewModel.h"
-#import "SPCollectionView.h"
+#import "SPCollectionViewDelegate.h"
 
 
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class SPCollectionViewDelegate;
 @interface SPBaseItem : UICollectionViewCell
 
 @property (nonatomic, strong) SPViewModel *data;
